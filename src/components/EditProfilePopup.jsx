@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext, useEffect } from "react";
 import PopupWithForm from './PopupWithForm';
 import Input from './Input';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
@@ -13,7 +13,7 @@ const EditProfilePopup = props => {
   const { isOpen, onClose, onUpdateUser, savingState } = props;
   const { values, validationMessages, handleChange, setValues, setValidationMessages } = useForm(initFields, initFields);
 
-  const currentUser = React.useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const buttonText = savingState ? "Сохранение..." : "Сохранить";
 
@@ -21,7 +21,7 @@ const EditProfilePopup = props => {
     onUpdateUser({ name: values.name, about: values.description });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       setValues({
         name: currentUser.name || '',

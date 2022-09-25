@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import PopupWithForm from './PopupWithForm';
 import Input from './Input';
 import { useForm } from "../hooks/useForm";
@@ -18,7 +18,7 @@ const AddPlacePopup = props => {
     onAddPlace({ name: values.place, link: values.image });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       setValues(initFields);
       setValidationMessages(initFields);

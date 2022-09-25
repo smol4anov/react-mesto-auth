@@ -1,12 +1,12 @@
-import React from "react";
+import { useRef, useState, useEffect } from "react";
 import PopupWithForm from './PopupWithForm';
 
 const EditAvatarPopup = props => {
   const { isOpen, onClose, onUpdateAvatar, savingState } = props;
 
-  const avatarUrlRef = React.useRef();
+  const avatarUrlRef = useRef();
 
-  const [validationState, setValidationState] = React.useState({
+  const [validationState, setValidationState] = useState({
     isValid: false,
     errorMessage: '',
   });
@@ -29,7 +29,7 @@ const EditAvatarPopup = props => {
   const inputClassList = `popup__input ${(!validationState.errorMessage) ? '' : 'popup__input_type_error'}`;
   const errorSpanClassList = `popup__input-error ${(!validationState.errorMessage) ? '' : 'popup__input-error_active'}`;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       avatarUrlRef.current.value = '';
       setValidationState({

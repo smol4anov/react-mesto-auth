@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 const ImagePopup = (props) => {
   const { card, onClose } = props;
@@ -25,7 +25,7 @@ const ImagePopup = (props) => {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (card) {
       document.addEventListener('keydown', handleEscClose);
     }

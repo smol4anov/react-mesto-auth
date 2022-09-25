@@ -1,10 +1,10 @@
-import React from "react";
+import { useContext } from "react";
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 const Card = props => {
   const { card, onCardClick, onCardLike, onCardDelete } = props;
 
-  const currentUser = React.useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const isOwn = card.owner._id === currentUser._id;
   const cardDeleteButtonClassName = (`element__delete ${isOwn ? '' : 'element__delete_hidden'}`);

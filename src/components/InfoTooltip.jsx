@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import unionSuccess from '../images/Union-success.png';
 import unionFail from '../images/Union-fail.png';
 
@@ -24,7 +24,7 @@ const InfoTooltip = props => {
   const tooltipText = success ? 'Вы успешно зарегистрировались!'
     : 'Что-то пошло не так! Попробуйте ещё раз.';
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener('keydown', handleEscClose);
     }

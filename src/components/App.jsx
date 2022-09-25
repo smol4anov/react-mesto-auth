@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import './App.css';
+import '../blocks/app/App.css';
 
 import ImagePopup from './ImagePopup';
 import Main from './Main';
@@ -19,20 +19,20 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 
 function App() {
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [errorPopupText, setErrorPopupText] = React.useState("");
-  const [selectedCard, setSelectedCard] = React.useState();
-  const [currentUser, setCurrentUser] = React.useState({});
-  const [cards, setCards] = React.useState([]);
-  const [isTooltipPopupOpen, setIsTooltipPopupOpen] = React.useState(false);
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const [tooltipState, setTooltipState] = React.useState(true);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [errorPopupText, setErrorPopupText] = useState("");
+  const [selectedCard, setSelectedCard] = useState();
+  const [currentUser, setCurrentUser] = useState({});
+  const [cards, setCards] = useState([]);
+  const [isTooltipPopupOpen, setIsTooltipPopupOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [tooltipState, setTooltipState] = useState(true);
 
-  const [savingState, setSavingState] = React.useState(false);
-  const [removedCard, setRemovedCard] = React.useState();
-  const [userEmail, setUserEmail] = React.useState('');
+  const [savingState, setSavingState] = useState(false);
+  const [removedCard, setRemovedCard] = useState();
+  const [userEmail, setUserEmail] = useState('');
 
   const navigate = useNavigate();
 
@@ -182,7 +182,7 @@ function App() {
       .then((res) => {
         if (res) {
           setLoggedIn(true);
-          setUserEmail(res.email);
+          setUserEmail(res.data?.email);
         }
       })
       .catch(openFailTooltip);

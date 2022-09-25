@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const PopupWithForm = props => {
   const { title, name, children, buttonText, isOpen, onClose, onSubmit, validOnOpen = false } = props;
@@ -35,7 +34,7 @@ const PopupWithForm = props => {
     setIsValidForm(allInputsValid);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener('keydown', handleEscClose);
       setIsValidForm(validOnOpen);
