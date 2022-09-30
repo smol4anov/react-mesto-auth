@@ -12,7 +12,7 @@
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/sing-in/sing-in.css);
 
-/* Элементы */
+/* Элементы  */
 @import url(./blocks/page/__wrapper/page__wrapper.css);
 @import url(./blocks/page/__header/page__header.css);
 @import url(./blocks/page/__main/page__main.css);
